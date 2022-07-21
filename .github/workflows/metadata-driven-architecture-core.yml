@@ -1,0 +1,49 @@
+name: Metadata Driven Architecture - Core Library
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '/**'
+      - '.github/workflows/metadata-driven-architecture-core.yml'
+  workflow_dispatch:
+
+env:
+  CloudStorageBucket: 'app-dev-storage'
+  Tag: metadata-driven-architecture-core-${{ github.run_number }}
+  GCP_PROJECT: metadata-driven-architecture-core-dev-317106
+  GCP_KEY: ${{ secrets.DEV_GCP_KEY }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Cloud SDK
+        uses: google-github-actions/auth@v0
+        with:
+          project_id: ${{ env.GCP_PROJECT }}
+          credentials_json: ${{ env.GCP_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.13.1'
+
+      - name: Build, test and deploy frontend to static GCP Cloud Storage
+        id: deploy
+        run: |
+          npm i
+          npm run test
+          npm run build
+          npm publish
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{env.Tag}}
+          path: './build/'
