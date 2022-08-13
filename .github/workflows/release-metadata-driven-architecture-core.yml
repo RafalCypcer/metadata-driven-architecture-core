@@ -1,4 +1,4 @@
-name: - Release - Metadata Driven Architecture - Core Library
+name: Release - Metadata Driven Architecture - Core Library
 
 on:
   workflow_dispatch:
@@ -25,4 +25,3 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
-
