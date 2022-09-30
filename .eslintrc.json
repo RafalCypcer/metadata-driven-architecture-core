@@ -29,6 +29,7 @@
       "error",
       { "ignoreDeclarationSort": true, "ignoreCase": true }
     ],
-    "functional/no-return-void": "off"
+    "functional/no-return-void": "off",
+    "functional/no-class": "off"
   }
 }
