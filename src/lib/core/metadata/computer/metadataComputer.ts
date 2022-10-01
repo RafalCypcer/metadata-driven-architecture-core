@@ -11,7 +11,7 @@ export const compute = (
   values: unknown,
   optionalInjectedProps: unknown
 ) => {
-  // If part of metadata is array we need to interate over items and call 'compute' function
+  // If part of metadata is array we need to iterate over items and call 'compute' function
   // to find out all computer properties
   const newMetadataArray: Array<unknown> = [];
   if (getInstanceOf(metadata) === ARRAY) {
@@ -73,7 +73,7 @@ export const compute = (
               computedProperty as Record<string, unknown>
             ).$func;
             // We can define different types of computed properties.
-            // In switch statement we can extend behaviours for our metadata.
+            // In switch statement we can extend behaviors for our metadata.
             switch (computedPropertyType) {
               // Computed property "value" gets the function if exists and returns value directly to related property.
               case 'value': {
