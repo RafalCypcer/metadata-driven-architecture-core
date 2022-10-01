@@ -1,6 +1,6 @@
 name: Development - Metadata Driven Architecture - Core Library
 
-on: [push, pull_request, workflow_dispatch]
+on: [pull_request, workflow_dispatch]
 
 jobs:
   build:

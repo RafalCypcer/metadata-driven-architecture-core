@@ -1,4 +1,4 @@
-import { getInstanceOf, ARRAY, OBJECT, FUNCTION } from '../../index';
+import { ARRAY, FUNCTION, getInstanceOf, OBJECT } from '../../index';
 
 /*
 	Recursive function which traverse the metadata tree to find out computed properties to compute.
@@ -9,7 +9,7 @@ import { getInstanceOf, ARRAY, OBJECT, FUNCTION } from '../../index';
 export const compute = (
   metadata: unknown,
   values: unknown,
-  optionalInjectedProps: any
+  optionalInjectedProps: unknown
 ) => {
   // If part of metadata is array we need to interate over items and call 'compute' function
   // to find out all computer properties
@@ -35,7 +35,7 @@ export const compute = (
       // For childComponents we need to iterate over items and call 'compute' function
       // to find out all computer properties
       if (propertyName === 'childComponents') {
-        const newComputedChildComponentsArray: Array<any> = [];
+        const newComputedChildComponentsArray: Array<unknown> = [];
         for (
           let i = 0;
           i <
