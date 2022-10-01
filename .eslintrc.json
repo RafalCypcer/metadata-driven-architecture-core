@@ -29,6 +29,11 @@
       "error",
       { "ignoreDeclarationSort": true, "ignoreCase": true }
     ],
-    "functional/no-return-void": "off"
+    "functional/no-return-void": "off",
+    "functional/no-class": "off",
+    "functional/no-let": "off",
+    "functional/no-loop-statement": "off",
+    "functional/no-this-expression": "off",
+    "@typescript-eslint/no-explicit-any": "error"
   }
 }
