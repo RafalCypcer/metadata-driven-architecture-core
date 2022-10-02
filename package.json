@@ -1,6 +1,6 @@
 {
   "name": "metadata-driven-architecture-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Core library for metadata driven architecture.",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
