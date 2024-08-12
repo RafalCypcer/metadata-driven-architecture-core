@@ -18,11 +18,12 @@ jobs:
       - name: Install dependencies, test and build 🔧
         id: deploy
         run: |
-          npm i --legacy-peer-deps
-          npm run test
-          npm run build
+          npm install -g pnpm
+          pnpm i
+          pnpm run test
+          pnpm run build
 
       - name: Publish package on NPM 📦
-        run: npm publish
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}

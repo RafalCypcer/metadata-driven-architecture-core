@@ -15,6 +15,7 @@ jobs:
 
       - name: Install dependencies, test and build 🔧
         run: |
-          npm i --legacy-peer-deps
-          npm run test
-          npm run build
+          npm install -g pnpm
+          pnpm i
+          pnpm run test
+          pnpm run build
