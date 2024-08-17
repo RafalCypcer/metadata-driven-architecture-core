@@ -1,10 +1,10 @@
 export class Guid {
   public static readonly validator = new RegExp(
-    '^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$',
-    'i'
+    "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$",
+    "i"
   );
 
-  public static readonly EMPTY = '00000000-0000-0000-0000-000000000000';
+  public static readonly EMPTY = "00000000-0000-0000-0000-000000000000";
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public static isGuid(guid: any): boolean {
@@ -16,16 +16,16 @@ export class Guid {
     return guid && guid instanceof Guid;
   }
 
-  public static create(): Guid {
-    return new Guid(
-      [Guid.gen(2), Guid.gen(1), Guid.gen(1), Guid.gen(1), Guid.gen(3)].join(
-        '-'
-      )
-    );
+  public static generate(): Guid {
+    return new Guid([Guid.gen(2), Guid.gen(1), Guid.gen(1), Guid.gen(1), Guid.gen(3)].join("-"));
+  }
+
+  public static new(): string {
+    return this.generate().toString();
   }
 
   public static createEmpty(): Guid {
-    return new Guid('-');
+    return new Guid("-");
   }
 
   public static parse(guid: string): Guid {
@@ -33,17 +33,11 @@ export class Guid {
   }
 
   public static raw(): string {
-    return [
-      Guid.gen(2),
-      Guid.gen(1),
-      Guid.gen(1),
-      Guid.gen(1),
-      Guid.gen(3),
-    ].join('-');
+    return [Guid.gen(2), Guid.gen(1), Guid.gen(1), Guid.gen(1), Guid.gen(3)].join("-");
   }
 
   private static gen(count: number) {
-    let out = '';
+    let out = "";
     for (let i = 0; i < count; i++) {
       out += (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
     }
@@ -54,7 +48,7 @@ export class Guid {
 
   public constructor(guid: string) {
     if (!guid) {
-      new TypeError('Invalid argument; `value` has no value.');
+      new TypeError("Invalid argument; `value` has no value.");
     }
 
     this.value = Guid.EMPTY;

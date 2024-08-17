@@ -39,6 +39,7 @@
     "@swc/core": "^1.7.10",
     "@swc/jest": "^0.2.36",
     "@types/jest": "^29.5.12",
+    "@types/node": "^22.4.0",
     "@typescript-eslint/eslint-plugin": "^8.1.0",
     "@typescript-eslint/parser": "^8.1.0",
     "cspell": "^8.13.3",
