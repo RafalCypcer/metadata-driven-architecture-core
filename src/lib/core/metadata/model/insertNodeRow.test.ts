@@ -10,6 +10,7 @@ describe("insertNodeRow Test Suite", () => {
         order: 0,
         parentNodeId: "",
         properties: {},
+        computedProperties: {},
       },
     ];
 
@@ -22,6 +23,7 @@ describe("insertNodeRow Test Suite", () => {
         order: 0,
         parentNodeId: "",
         properties: {},
+        computedProperties: {},
       },
       {
         id: "child",
@@ -29,6 +31,7 @@ describe("insertNodeRow Test Suite", () => {
         order: 0,
         parentNodeId: "root",
         properties: {},
+        computedProperties: {},
       },
     ];
 

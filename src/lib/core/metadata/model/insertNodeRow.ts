@@ -35,6 +35,7 @@ export const insertNodeRow = <T>(
     childrenNodeIds: [],
     order: childrenOfParent,
     properties: properties,
+    computedProperties: {} as T,
   });
 
   /**

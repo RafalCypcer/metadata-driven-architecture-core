@@ -17,11 +17,15 @@ export type NodeRow<T = Record<string, any>> = {
    */
   childrenNodeIds: Array<string>;
   /**
-   * Order of node under parent node.
+   * Order of node under parent node. First item starts counting from `1`.
    */
   order: number;
   /**
-   * Properties of existing node.
+   * Raw properties (metadata) of existing node.
    */
   properties: T;
+  /**
+   * Computed properties for existing node.
+   */
+  computedProperties: T;
 };
