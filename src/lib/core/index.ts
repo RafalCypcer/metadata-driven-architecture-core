@@ -1,14 +1,14 @@
 /* Constants */
-export const OBJECT = '[object Object]';
-export const ARRAY = '[object Array]';
-export const DATE = '[object Date]';
-export const FUNCTION = '[object Function]';
-export const BOOLEAN = '[object Boolean]';
-export const NUMBER = '[object Number]';
-export const STRING = '[object String]';
-export const NULL = '[object Null]';
-export const UNDEFINED = '[object Undefined]';
-export const SYMBOL = '[object Symbol]';
+export const OBJECT = "[object Object]";
+export const ARRAY = "[object Array]";
+export const DATE = "[object Date]";
+export const FUNCTION = "[object Function]";
+export const BOOLEAN = "[object Boolean]";
+export const NUMBER = "[object Number]";
+export const STRING = "[object String]";
+export const NULL = "[object Null]";
+export const UNDEFINED = "[object Undefined]";
+export const SYMBOL = "[object Symbol]";
 
 /**
  * Returns name of instance as string in format "[object TYPE]"
@@ -31,7 +31,7 @@ export const SYMBOL = '[object Symbol]';
  * @returns String with format '[object X]' where X can be Object, Array, Date, Function, Boolean, Number, String, Null, Undefined or Symbol.
  */
 export const getInstanceOf = (obj: unknown): string => {
-	return {}.toString.apply(obj);
+  return {}.toString.apply(obj);
 };
 
 /**
@@ -52,10 +52,10 @@ export const getInstanceOf = (obj: unknown): string => {
  * ```
  *
  * @param obj - Represents any object to check.
- * @returns True if object is of type string. Otherwise returns false..
+ * @returns `true` if object is of type string. Otherwise returns `false`.
  */
 export const isString = (obj: unknown): boolean => {
-	return {}.toString.apply(obj) == STRING;
+  return {}.toString.apply(obj) == STRING;
 };
 
 /**
@@ -76,8 +76,33 @@ export const isString = (obj: unknown): boolean => {
  * ```
  *
  * @param obj - Represents any object to check.
- * @returns True if object is of type Date. Otherwise returns false..
+ * @returns `true` if object is of type Date. Otherwise returns `false`.
  */
 export const isDate = (obj: unknown): boolean => {
-	return {}.toString.apply(obj) == DATE;
+  return {}.toString.apply(obj) == DATE;
+};
+
+/**
+ * Checks whether object is primitive."
+ *
+ * ### Example (es module)
+ * ```js
+ * import { isPrimitive } from 'metadata-driven-architecture-core'
+ * console.log(isPrimitive('a'))
+ * // => true
+ * ```
+ *
+ * ### Example (commonjs)
+ * ```js
+ * var isString = require('metadata-driven-architecture-core').isPrimitive;
+ * console.log(isString('a'))
+ * // => true
+ * ```
+ *
+ * @param obj - Represents any object to check.
+ * @returns `true` if object is of primitive type. Otherwise returns `false`.
+ */
+export const isPrimitive = (obj: unknown): boolean => {
+  const instance = getInstanceOf(obj);
+  return [STRING, DATE, BOOLEAN, NUMBER, SYMBOL].includes(instance);
 };
